@@ -53,13 +53,13 @@ unset($_SESSION['qty_array']);
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
           <li>
-            <a href="./dashboard.html">
+            <a href="../dashboard.html">
               <i class="fa fa-home" aria-hidden="true"></i>
               <p>About Us</p>
             </a>
           </li>
           <li class="active">
-            <a href="./icons.php">
+            <a href="../store/medicinestore.php">
               <i class="fa fa-shopping-bag" aria-hidden="true"></i>
               <p>Medicine Store</p>
             </a>
@@ -68,6 +68,13 @@ unset($_SESSION['qty_array']);
             <a href="./map.html">
               <i class="fa fa-user-md" aria-hidden="true"></i>
               <p>Health Consultation</p>
+            </a>
+          </li>
+
+          <li>
+            <a href="./cart.php">
+              <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+              <p>Cart</p>
             </a>
           </li>
           
