@@ -87,7 +87,7 @@ unset($_SESSION['qty_array']);
             </a>
           </li>
           <li>
-            <a href="./map.html">
+            <a href="../chat/chat.html">
               <i class="fa fa-user-md" aria-hidden="true"></i>
               <p>Health Consultation</p>
             </a>
@@ -101,7 +101,7 @@ unset($_SESSION['qty_array']);
           </li>
 
           <li>
-            <a href="./setting/index.html">
+            <a href="../setting/index.html">
                 <i class="fa fa-cogs" aria-hidden="true"></i>
               <p>Setting</p>
             </a>

@@ -42,7 +42,7 @@
             </a>
           </li>
           <li>
-            <a href="../map.html">
+            <a href="../chat/chat.html">
               <i class="fa fa-user-md" aria-hidden="true"></i>
               <p>Health Consultation</p>
             </a>
