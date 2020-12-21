@@ -6,6 +6,6 @@
 		}
 
 		$_SESSION['message'] = 'Cart updated successfully';
-		header('location: view_cart.php');
+		header('location: cart.php');
 	}
 ?>

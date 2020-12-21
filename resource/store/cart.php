@@ -35,6 +35,28 @@ unset($_SESSION['qty_array']);
 		padding-left:20px; 
 		padding-right:20px;
 	}
+  .btn-warning {
+  font-family: Raleway-SemiBold;
+  font-size: 13px;
+  color: rgba(240, 173, 78, 0.75);
+  letter-spacing: 1px;
+  line-height: 15px;
+  border: 2px solid rgba(240, 173, 78, 0.75);
+  border-radius: 40px;
+  background: transparent;
+  transition: all 0.3s ease 0s;
+}
+.btn-primary {
+  font-family: Raleway-SemiBold;
+  font-size: 13px;
+  color: rgba(58, 133, 191, 0.75);
+  letter-spacing: 1px;
+  line-height: 15px;
+  border: 2px solid rgba(58, 133, 191, 0.75);
+  border-radius: 40px;
+  background: transparent;
+  transition: all 0.3s ease 0s;
+}
 </style>
 </head>
 
@@ -58,7 +80,7 @@ unset($_SESSION['qty_array']);
               <p>About Us</p>
             </a>
           </li>
-          <li class="active">
+          <li>
             <a href="../store/medicinestore.php">
               <i class="fa fa-shopping-bag" aria-hidden="true"></i>
               <p>Medicine Store</p>
@@ -71,12 +93,19 @@ unset($_SESSION['qty_array']);
             </a>
           </li>
 
-          <li>
+          <li class="active">
             <a href="./cart.php">
               <i class="fa fa-shopping-cart" aria-hidden="true"></i>
               <p>Cart</p>
             </a>
           </li>
+
+          <li>
+            <a href="../setting/index.html">
+                <i class="fa fa-cogs" aria-hidden="true"></i>
+              <p>Setting</p>
+            </a>
+          </li>     
           
           <li class="active-pro">
             <a href="./upgrade.html">
@@ -99,104 +128,89 @@ unset($_SESSION['qty_array']);
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#" style="color:black;">Medicine Store</a>
+                <a class="navbar-brand" href="#" style="color:black;">Cart</a>
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
-                          <li><a href="view_cart.php"><span class="badge" ><?php echo count($_SESSION['cart']); ?></span>&nbsp;<font style="color:black;">Cart</font>&nbsp;<span class="glyphicon glyphicon-shopping-cart" style="color:black;"></span></a></li>
+                          <li><a href="cart.php"><span class="badge" ><?php echo count($_SESSION['cart']); ?></span>&nbsp;<font style="color:black;">Cart</font>&nbsp;<span class="glyphicon glyphicon-shopping-cart" style="color:black;"></span></a></li>
                         </ul>
                       </div>
               </div>
-              <div class="card-body">    
-                  <p>
-                  <?php
+              <div class="card-body"> 
+              <div class="row">
+                <div class="col-sm-12">
+                  <?php 
                   if(isset($_SESSION['message'])){
                     ?>
-                    <div class="row">
-                      <div class="col-sm-6 col-sm-offset-6">
-                        <div class="alert alert-info text-center">
-                          <?php echo $_SESSION['message']; ?>
-                        </div>
-                      </div>
+                    <div class="alert alert-info text-center">
+                      <?php echo $_SESSION['message']; ?>
                     </div>
                     <?php
                     unset($_SESSION['message']);
                   }
-              
-              
-                  //connection
-                  $conn = new mysqli('localhost', 'root', '', 'shopping');
-              
-                  $sql = "SELECT * FROM products";
-                  $query = $conn->query($sql);
-                  $inc = 4;
-                  while($row = $query->fetch_assoc()){
-                    $inc = ($inc == 4) ? 1 : $inc + 1; 
-                    if($inc == 1) echo "<div class='row text-center'>";  
-                    ?>
-                    <div class="col-sm-3">
-                      <div class="panel panel-default">
-                        <div class="panel-body">
-                          <div class="row product_image">
-                            <?php echo "<img src='../../assets/$row[photo]' padding-top:0px;' />";?>
-                          </div>
-                          <div class="row product_name">
-                            <h4><?php echo $row['name']; ?></h4>
-                          </div>
-                          <div class="row product_footer">
-                            <!-- <p><b><?php echo $row['price']; ?></b></p> -->
-                            <div class="col-md-12">
-                            <span>
-                                <a href="add_cart.php?id=<?php echo $row['id']; ?>" class="btn btn-primary btn-sm">
-                                  <span class="glyphicon glyphicon-plus"></span> Cart
-                                </a>
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#form_modal"> Detail</button>
-                            </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <?php
-                  }
-                  if($inc == 1) echo "<div></div><div></div><div></div></div>"; 
-                  if($inc == 2) echo "<div></div><div></div></div>"; 
-                  if($inc == 3) echo "<div></div></div>";		
-                  ?>
-              
-                <div class="modal fade" id="form_modal" tabindex="-1" role="dialog" aria-hidden="true">
-                  <div class="modal-dialog" role="document">
-                    <form action="save_query.php" method="POST" enctype="multipart/form-data">
-                      <div class="modal-content">
-                        <div class="modal-body">
-                          <div class="col-md-2"></div>
-                          <div class="col-md-8">
-                            <div class="form-group">
-                              <label>Product Name</label>
-                              <input class="form-control" type="text" name="name">
-                            </div>
-                            <div class="form-group">
-                              <label>Product Price</label>
-                              <input class="form-control" type="number" name="price">
-                            </div>
-                            <div class="form-group">
-                              <label>Product Photo</label>
-                              <input class="form-control" type="file" name="photo">
-                            </div>
-                          </div>
-                        </div>
-                        <div style="clear:both;"></div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Close</button>
-                          <button name="save" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> Save</button>
-                        </div>
-                      </div>
-                    </form>
-                  </div>
-                </div>
 
+                  ?>
+                  <form method="POST" action="save_cart.php">
+                  <table class="table table-bordered table-striped">
+                    <thead>
+                      <th></th>
+                      <th>Name</th>
+                      <th>Price</th>
+                      <th>Quantity</th>
+                      <th>Subtotal</th>
+                    </thead>
+                    <tbody>
+                      <?php
+                        $total = 0;
+                        if(!empty($_SESSION['cart'])){
+                        $conn = new mysqli('localhost', 'root', '', 'shopping');
+                        $index = 0;
+                        if(!isset($_SESSION['qty_array'])){
+                          $_SESSION['qty_array'] = array_fill(0, count($_SESSION['cart']), 1);
+                        }
+                        $sql = "SELECT * FROM products WHERE id IN (".implode(',',$_SESSION['cart']).")";
+                        $query = $conn->query($sql);
+                          while($row = $query->fetch_assoc()){
+                            ?>
+                            <tr>
+                              <td>
+                                <a href="delete_item.php?id=<?php echo $row['id']; ?>&index=<?php echo $index; ?>" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></a>
+                              </td>
+                              <td><?php echo $row['name']; ?></td>
+                              <td><?php echo number_format($row['price'], 2); ?></td>
+                              <input type="hidden" name="indexes[]" value="<?php echo $index; ?>">
+                              <td><input type="text" class="form-control" value="<?php echo $_SESSION['qty_array'][$index]; ?>" name="qty_<?php echo $index; ?>"></td>
+                              <td><?php echo number_format($_SESSION['qty_array'][$index]*$row['price'], 2); ?></td>
+                              <?php $total += $_SESSION['qty_array'][$index]*$row['price']; ?>
+                            </tr>
+                            <?php
+                            $index ++;
+                          }
+                        }
+                        else{
+                          ?>
+                          <tr>
+                            <td colspan="4" class="text-center">No Item in Cart</td>
+                          </tr>
+                          <?php
+                        }
+
+                      ?>
+                      <tr>
+                        <td colspan="4" align="right"><b>Total</b></td>
+                        <td><b><?php echo number_format($total, 2); ?></b></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <a href="medicinestore.php" class="btn btn-primary"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
+                  <button type="submit" class="btn btn-success" name="save">Save Changes</button>
+                  <a href="clear_cart.php" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Clear Cart</a>
+                  <a href="checkout.php" class="btn btn-success"><span class="glyphicon glyphicon-check"></span> Checkout</a>
+                  </form>
+                </div>
               </div>
+              </div>                  
             </div>
           </div>
         </div>

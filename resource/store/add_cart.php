@@ -9,5 +9,5 @@
 		$_SESSION['message'] = 'Product already in cart';
 	}
 
-	header('location: index.php');
+	header('location: medicinestore.php');
 ?>

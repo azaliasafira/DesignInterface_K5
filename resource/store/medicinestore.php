@@ -35,6 +35,28 @@ unset($_SESSION['qty_array']);
 		padding-left:20px; 
 		padding-right:20px;
 	}
+  .btn-warning {
+  font-family: Raleway-SemiBold;
+  font-size: 13px;
+  color: rgba(240, 173, 78, 0.75);
+  letter-spacing: 1px;
+  line-height: 15px;
+  border: 2px solid rgba(240, 173, 78, 0.75);
+  border-radius: 40px;
+  background: transparent;
+  transition: all 0.3s ease 0s;
+}
+.btn-primary {
+  font-family: Raleway-SemiBold;
+  font-size: 13px;
+  color: rgba(58, 133, 191, 0.75);
+  letter-spacing: 1px;
+  line-height: 15px;
+  border: 2px solid rgba(58, 133, 191, 0.75);
+  border-radius: 40px;
+  background: transparent;
+  transition: all 0.3s ease 0s;
+}
 </style>
 </head>
 
@@ -77,6 +99,13 @@ unset($_SESSION['qty_array']);
               <p>Cart</p>
             </a>
           </li>
+
+          <li>
+            <a href="./setting/index.html">
+                <i class="fa fa-cogs" aria-hidden="true"></i>
+              <p>Setting</p>
+            </a>
+          </li>  
           
           <li class="active-pro">
             <a href="./upgrade.html">
@@ -104,11 +133,11 @@ unset($_SESSION['qty_array']);
                         <ul class="nav navbar-nav">
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
-                          <li><a href="view_cart.php"><span class="badge" ><?php echo count($_SESSION['cart']); ?></span>&nbsp;<font style="color:black;">Cart</font>&nbsp;<span class="glyphicon glyphicon-shopping-cart" style="color:black;"></span></a></li>
+                          <li><a href="cart.php"><span class="badge" ><?php echo count($_SESSION['cart']); ?></span>&nbsp;<font style="color:black;">Cart</font>&nbsp;<span class="glyphicon glyphicon-shopping-cart" style="color:black;"></span></a></li>
                         </ul>
                       </div>
               </div>
-              <div class="card-body">    
+              <div class="card-body"> 
                   <p>
                   <?php
                   if(isset($_SESSION['message'])){
@@ -145,25 +174,30 @@ unset($_SESSION['qty_array']);
                             <h4><?php echo $row['name']; ?></h4>
                           </div>
                           <div class="row product_footer">
-                            <!-- <p><b><?php echo $row['price']; ?></b></p> -->
+                            <p><b><?php echo $row['price']; ?></b></p>
                             <div class="col-md-12">
                             <span>
-                                <a href="add_cart.php?id=<?php echo $row['id']; ?>" class="btn btn-primary btn-sm">
-                                  <span class="glyphicon glyphicon-plus"></span> Cart
-                                </a>
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#form_modal"> Detail</button>
+                                  <button type="button" class="btn btn-warning">
+                                  <a href="add_cart.php?id=<?php echo $row['id']; ?>">
+                                  Cart
+                                </a> 
+                                  </button>
+                                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#form_modal" >Detail</button>
                             </span>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
+
+                    
                     <?php
                   }
                   if($inc == 1) echo "<div></div><div></div><div></div></div>"; 
                   if($inc == 2) echo "<div></div><div></div></div>"; 
                   if($inc == 3) echo "<div></div></div>";		
                   ?>
+                
               
                 <div class="modal fade" id="form_modal" tabindex="-1" role="dialog" aria-hidden="true">
                   <div class="modal-dialog" role="document">
