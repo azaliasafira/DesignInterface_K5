@@ -57,6 +57,28 @@ unset($_SESSION['qty_array']);
   background: transparent;
   transition: all 0.3s ease 0s;
 }
+.btn-success {
+    font-family: Raleway-SemiBold;
+    font-size: 13px;
+    color: rgba(21, 132, 103);
+    letter-spacing: 1px;
+    line-height: 15px;
+    border: 2px solid rgba(21, 132, 103);
+    border-radius: 40px;
+    background: transparent;
+    transition: all 0.3s ease 0s;
+  }
+.btn-danger {
+    font-family: Raleway-SemiBold;
+    font-size: 13px;
+    color: rgba(236, 31, 31);
+    letter-spacing: 1px;
+    line-height: 15px;
+    border: 2px solid rgba(236, 31, 31);
+    border-radius: 40px;
+    background: transparent;
+    transition: all 0.3s ease 0s;
+  }
 </style>
 </head>
 

@@ -185,7 +185,7 @@ unset($_SESSION['qty_array']);
                                   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#form_modal" >Detail</button>
                             </span>
                             </div>
-                          </div>
+                          </div> 
                         </div>
                       </div>
                     </div>
@@ -204,26 +204,27 @@ unset($_SESSION['qty_array']);
                     <form action="save_query.php" method="POST" enctype="multipart/form-data">
                       <div class="modal-content">
                         <div class="modal-body">
-                          <div class="col-md-2"></div>
-                          <div class="col-md-8">
-                            <div class="form-group">
-                              <label>Product Name</label>
-                              <input class="form-control" type="text" name="name">
-                            </div>
-                            <div class="form-group">
-                              <label>Product Price</label>
-                              <input class="form-control" type="number" name="price">
-                            </div>
-                            <div class="form-group">
-                              <label>Product Photo</label>
-                              <input class="form-control" type="file" name="photo">
+                        <div class="card mb-3">
+                            <div class="row g-0">
+                              <div class="col-lg-4">
+                                <img src="../../assets/images/bisolvon.jpeg" width="600px" height="300px">
+                              </div>
+                              <div class="col-lg-8">
+                                <div class="card-body">
+                                  <h5 class="card-title" text-align="left"><b>Deskripsi Produk</b></h5>
+                                  <p class="card-text" style="text-align:justify;">TBISOLVON EXTRA SIRUP mengandung Bromhexine HCl dan Guaifenesin. 
+                                    Obat ini digunakan untuk mengatasi batuk berdahak yang bekerja sebagai sekretolitik (mukolitik) dan 
+                                    ekspektoran untuk meredakan batuk berdahak dan mempermudah pengeluaran dahak pada saat batuk. 
+                                    Obat ini akan membantu dengan 3 langkah kerja, yaitu: dengan Melepaskan, Mengencerkan, serta Mengeluarkan dahak, sehingga dahak dapat mudah dikeluarkan.
+                                  </p>
+                                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                </div>
+                              </div>
                             </div>
                           </div>
-                        </div>
                         <div style="clear:both;"></div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Close</button>
-                          <button name="save" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> Save</button>
                         </div>
                       </div>
                     </form>
