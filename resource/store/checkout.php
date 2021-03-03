@@ -72,9 +72,9 @@
                         </li>
 
                         <li class="active-pro">
-                            <a href="./upgrade.html">
+                            <a href="../login/login.html">
                                 <i class="fas fa-sign-out-alt"></i>
-                                <p>Logout</p>
+                                <p>Login</p>
                             </a>
                         </li>
                     </ul>
